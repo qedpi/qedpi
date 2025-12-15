@@ -53,6 +53,33 @@ Example with more customization:
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=radical&layout=compact&langs_count=8&hide=html,css)](https://github.com/anuraghazra/github-readme-stats)
 ```
 
+## Future Improvements
+
+### Custom Activity Tracking Service
+Build a custom alternative to WakaTime that provides meaningful coding activity insights without the surveillance feel:
+
+**Why Build Our Own:**
+- WakaTime's free tier only keeps 1 week of history (limited utility)
+- Premium tier ($12/month) required for unlimited history
+- Privacy concerns with third-party activity monitoring
+- Opportunity to create more meaningful, personalized metrics
+
+**Potential Features:**
+- Self-hosted solution with full data ownership
+- IDE plugin for activity tracking (VS Code, JetBrains, etc.)
+- Local-first approach with optional cloud sync
+- Custom metrics tailored to personal productivity goals
+- Integration with GitHub profile cards
+- Open source implementation for transparency
+- Focus on insights over surveillance
+
+**Technical Approach:**
+- Lightweight IDE extensions for activity capture
+- Local database for historical data
+- API endpoint for generating SVG stats cards
+- Similar architecture to github-readme-stats (Vercel + dynamic SVG generation)
+- Privacy-focused: no tracking without explicit consent
+
 ## Additional Resources
 
 - [GitHub README Stats Documentation](https://github.com/anuraghazra/github-readme-stats)
