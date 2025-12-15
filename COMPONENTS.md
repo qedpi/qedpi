@@ -53,6 +53,32 @@ Example with more customization:
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=radical&layout=compact&langs_count=8&hide=html,css)](https://github.com/anuraghazra/github-readme-stats)
 ```
 
+## Optional Components
+
+### GitHub Stats Card
+
+The github-readme-stats service also provides a comprehensive stats card showing:
+- Total stars earned
+- Total commits (last year)
+- Total PRs
+- Total issues
+- Repositories contributed to
+- Grade badge (A+, A, B-, etc.)
+
+**Implementation:**
+```markdown
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=qedpi&show_icons=true&theme=dark&count_private=true&line_height=40)
+```
+
+**Note:** This profile doesn't use this card due to the grading system, which can feel arbitrary and gamify contributions in ways that don't necessarily reflect meaningful work. The language statistics card provides useful information without the judgmental aspect.
+
+**Customization Options:**
+- `show_icons` - Display icons for each stat
+- `count_private` - Include private repository contributions
+- `hide` - Hide specific stats (e.g., `&hide=issues,contribs`)
+- `include_all_commits` - Count all commits instead of just current year
+- `show` - Show additional stats like reviews or discussions
+
 ## Future Improvements
 
 ### Custom Activity Tracking Service
