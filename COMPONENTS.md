@@ -157,8 +157,55 @@ Build a custom alternative to WakaTime that provides meaningful coding activity 
 - Similar architecture to github-readme-stats (Vercel + dynamic SVG generation)
 - Privacy-focused: no tracking without explicit consent
 
+## Sponsor Badge
+
+A simple badge linking to GitHub Sponsors using shields.io:
+
+```markdown
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red?style=for-the-badge&logo=github)](https://github.com/sponsors/qedpi)
+```
+
+### What is shields.io?
+[Shields.io](https://shields.io/) is a service that provides customizable badges/shields for GitHub READMEs. You can create badges for:
+- Build status
+- Coverage
+- Version numbers
+- Downloads
+- Custom messages (like the sponsor badge)
+
+## Nostr Integration
+
+**What is Nostr?**
+
+[Nostr](https://nostr.com/) (Notes and Other Stuff Transmitted by Relays) is an open, decentralized protocol for message transmission designed to resist internet censorship while maintaining session integrity.
+
+### npub - Your Nostr Public Key
+
+An **npub** is your Nostr public identity key. Key characteristics:
+
+- **Public and shareable**: Your npub is meant to be shared publicly
+- **Unique identifier**: Used to look up your profile and connect with you
+- **Verification**: Others use it to verify your identity through message signatures
+- **Encryption**: Used by others to encrypt private messages to you
+- **Format**: User-friendly encoding (vs hexadecimal) of your public key
+
+**Example Usage in Profile:**
+```markdown
+**Nostr:** `npub1your_nostr_public_key_here`
+```
+
+### Why Include Nostr?
+
+Including your npub allows supporters to connect with you on decentralized social platforms, providing an alternative to traditional centralized social media.
+
+**Learn More:**
+- [Nostr Official Site](https://nostr.com/)
+- [Nostr on Wikipedia](https://en.wikipedia.org/wiki/Nostr)
+- [Nostr FAQs](https://nostrdesign.org/docs/faq/)
+
 ## Additional Resources
 
 - [GitHub README Stats Documentation](https://github.com/anuraghazra/github-readme-stats)
 - [Available Themes](https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md)
 - [GitHub's Language Statistics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages)
+- [Shields.io Badge Service](https://shields.io/)
