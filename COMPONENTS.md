@@ -44,14 +44,35 @@ Displays a dynamic card showing the most commonly used programming languages acr
 The card supports various parameters:
 - `username` - Your GitHub username
 - `theme` - Color theme (dark, light, radical, merko, gruvbox, etc.)
-- `layout` - Display layout (compact, default)
+- `layout` - Display layout (compact, default, donut, donut-vertical)
 - `hide` - Comma-separated list of languages to exclude
 - `langs_count` - Number of languages to display
+- `size_weight` - Weight for byte count (default: 1)
+- `count_weight` - Weight for file count (default: 0)
 
 Example with more customization:
 ```markdown
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=radical&layout=compact&langs_count=8&hide=html,css)](https://github.com/anuraghazra/github-readme-stats)
 ```
+
+### Private Repository Support
+
+**Important Limitation:** The public Vercel instance (github-readme-stats.vercel.app) **only counts public repositories**. It cannot access private repository data.
+
+**Solution - Self-Hosting:**
+To include private repositories in language statistics, you need to self-host your own instance:
+
+1. Fork the [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) repository
+2. Deploy to Vercel (free tier supported)
+3. Create a GitHub Personal Access Token with `repo` and `user` permissions
+4. Add the token as environment variable `PAT_1` in your Vercel deployment
+5. Update `maxDuration` in `vercel.json` to `10` seconds (required for free Vercel accounts)
+6. Use your Vercel instance URL instead of the public one
+
+**References:**
+- [Discussion: Does top-langs count private repos?](https://github.com/anuraghazra/github-readme-stats/discussions/1554)
+- [Issue: Private repo support for Top Languages](https://github.com/anuraghazra/github-readme-stats/issues/653)
+- [Discussion: Top Languages and private count](https://github.com/anuraghazra/github-readme-stats/discussions/814)
 
 ## Optional Components
 
@@ -80,6 +101,36 @@ The github-readme-stats service also provides a comprehensive stats card showing
 - `show` - Show additional stats like reviews or discussions
 
 ## Future Improvements
+
+### Self-Hosted Language Statistics with Private Repos
+
+**Current Limitation:** The language card currently only shows public repository statistics.
+
+**Potential Solutions:**
+
+1. **Self-host github-readme-stats** (Existing solution)
+   - Fork and deploy to Vercel with GitHub PAT
+   - Requires maintaining fork and syncing with upstream
+   - Free tier supported with `maxDuration=10` limit
+
+2. **Build Custom Solution** (Future consideration)
+   - Simpler implementation focused only on language stats
+   - No need to maintain fork of larger project
+   - Could integrate with custom activity tracking (see below)
+   - Self-hosted with full control over data and metrics
+
+**Pros of Custom Solution:**
+- Tailored to specific needs (just language stats, no grading)
+- Easier to maintain than keeping fork synced
+- Could add custom metrics (e.g., exclude generated code, weight by project importance)
+- Integration with private activity tracking service
+
+**Cons:**
+- Need to build and maintain from scratch
+- github-readme-stats is already well-tested and feature-rich
+- Self-hosting their fork is straightforward
+
+**Decision:** Start with self-hosted github-readme-stats fork if private repo stats are needed. Consider custom solution only if additional custom features become necessary.
 
 ### Custom Activity Tracking Service
 Build a custom alternative to WakaTime that provides meaningful coding activity insights without the surveillance feel:
