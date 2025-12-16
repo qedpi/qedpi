@@ -157,21 +157,62 @@ Build a custom alternative to WakaTime that provides meaningful coding activity 
 - Similar architecture to github-readme-stats (Vercel + dynamic SVG generation)
 - Privacy-focused: no tracking without explicit consent
 
-## Sponsor Badge
+## Profile Badges
 
-A simple badge linking to GitHub Sponsors using shields.io:
+### What is shields.io?
+[Shields.io](https://shields.io/) is a service that provides customizable badges/shields for GitHub READMEs. It serves over 1.6 billion images monthly and is used by popular projects like VS Code, Vue.js, and Bootstrap.
+
+You can create badges for:
+- Build status
+- Coverage
+- Version numbers
+- Downloads
+- Custom messages and links
+- Social media profiles
+- Personal websites and CVs
+
+### Website Badge
+
+Link to your personal website:
+
+```markdown
+[![Website](https://img.shields.io/badge/Website-yoursite.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yoursite.com)
+```
+
+**Customization options:**
+- Change `yoursite.com` (both in badge text and URL)
+- Adjust color: `blue`, `green`, `red`, `orange`, etc.
+- Choose different logo: `google-chrome`, `firefox`, `safari`, `globe`, etc.
+- Style options: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social`
+
+### CV/Resume Badge
+
+Link to your online CV or resume:
+
+```markdown
+[![CV](https://img.shields.io/badge/CV-Resume-green?style=for-the-badge&logo=readthedocs&logoColor=white)](https://cv.yoursite.com)
+```
+
+**Alternative logos for CV:**
+- `readthedocs` - Documentation icon
+- `googledocs` - Google Docs icon
+- `adobeacrobatreader` - PDF icon
+- `markdown` - Markdown icon
+
+### Sponsor Badge
+
+Link to GitHub Sponsors:
 
 ```markdown
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red?style=for-the-badge&logo=github)](https://github.com/sponsors/qedpi)
 ```
 
-### What is shields.io?
-[Shields.io](https://shields.io/) is a service that provides customizable badges/shields for GitHub READMEs. You can create badges for:
-- Build status
-- Coverage
-- Version numbers
-- Downloads
-- Custom messages (like the sponsor badge)
+**Badge Resources:**
+- [Shields.io Official Site](https://shields.io/)
+- [Website Badge Documentation](https://shields.io/badges/website)
+- [Static Badge Guide](https://shields.io/badges)
+- [Markdown Badges Collection](https://github.com/Ileriayo/markdown-badges)
+- [Badge Examples](https://naereen.github.io/badges/)
 
 ## Nostr Integration
 

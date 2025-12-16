@@ -1,3 +1,6 @@
+[![Website](https://img.shields.io/badge/Website-qedpi.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://qedpi.com)
+[![CV](https://img.shields.io/badge/CV-Resume-green?style=for-the-badge&logo=readthedocs&logoColor=white)](https://qedpi.com/cv)
+
 ## GitHub Activities
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=dark&layout=donut-vertical)](https://github.com/anuraghazra/github-readme-stats)
