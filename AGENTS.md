@@ -2,7 +2,7 @@
 
 This repository showcases projects and code developed in collaboration with AI assistants.
 
-> **Note**: `CLAUDE.md` and `GEMINI.md` are symlinks to this file, allowing the same documentation to be accessible under different names.
+> **Note**: `CLAUDE.md` and `GEMINI.md` are symlinks to this file, allowing the same guidance to be accessible to multiple AI coding tools.
 
 ## About This Approach
 
@@ -17,7 +17,7 @@ When working with AI agents on software projects, I typically:
 
 1. Define clear objectives and requirements
 2. Collaborate on architecture and design decisions
-3. Leverage Claude for implementation assistance and code review
+3. Leverage AI coding agents for implementation assistance and code review
 4. Maintain ownership of critical decisions and final code quality
 
 ## Projects
@@ -35,10 +35,15 @@ Transparency matters. As AI tools become integral to software development, I bel
 - The collaborative nature of modern software engineering
 - The value of human-AI partnership in technical work
 
+## Agent Context Structure
+
+Agent-facing context lives in `.agents/` as the canonical source. Reusable workflows belong in `.agents/skills/<name>/SKILL.md`, and durable reference material belongs in `.agents/shared-references/`. Tool-specific views should symlink to that structure; `.claude/skills` and `.codex/skills` point to `.agents/skills`.
+
 ## AI Assistants Used
 
 - [Claude](https://claude.ai) - Anthropic's AI assistant
 - [Gemini](https://gemini.google.com) - Google's AI assistant
+- [Codex](https://openai.com/codex/) - OpenAI's coding agent
 
 ---
 
