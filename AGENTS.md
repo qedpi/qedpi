@@ -2,14 +2,14 @@
 
 This repository showcases projects and code developed in collaboration with AI assistants.
 
-> **Note**: `CLAUDE.md` and `GEMINI.md` are symlinks to this file, allowing the same guidance to be accessible to multiple AI coding tools.
+*`CLAUDE.md` and `GEMINI.md` are symlinks to this file so multiple AI coding tools read the same guidance.*
 
 ## About This Approach
 
 I believe in transparent collaboration between human creativity and AI capabilities. The projects here represent a partnership where:
 
-- **Human**: Provides direction, domain expertise, architectural decisions, and critical thinking
-- **AI Agent**: Assists with implementation, code generation, research, and problem-solving
+- **Human:** Provides direction, domain expertise, architectural decisions, and critical thinking
+- **AI Agent:** Assists with implementation, code generation, research, and problem-solving
 
 ## Development Workflow
 
