@@ -1,252 +1,33 @@
-# GitHub Profile Components
+# Profile components
 
-This document explains the various components and services used in this GitHub profile repository.
+This file describes what README.md renders on the qedpi GitHub profile. Update it in the same change as README.md.
 
-<!--
-**qedpi/qedpi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Top languages card
 
-Here are some ideas to get you started:
+The card is the byte-weighted language share of public non-fork repositories owned by qedpi. The host is GitHub Stats Extended at https://github-stats-extended.vercel.app, the maintained successor of anuraghazra/github-readme-stats. The previous host https://github-readme-stats.vercel.app returns HTTP 503 with x-vercel-error DEPLOYMENT_PAUSED. anuraghazra/github-readme-stats says the project is unmaintained.
 
-- 🔭 I'm currently working on ...
-- 🌱 I'm currently learning ...
-- 👯 I'm looking to collaborate on ...
-- 🤔 I'm looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+The layout parameter is `donut-vertical`. `theme=dark` is shown with `#gh-dark-mode-only`, and `theme=default` is shown with `#gh-light-mode-only`, so the card follows the viewer's GitHub theme.
 
-## Language Statistics Card
+On 2026-09-26 the byte-weighted card was about 95% Jupyter Notebook because notebook files are large. File-count weighting (size_weight=0&count_weight=1) produces a different ranking. Keep byte weighting unless the profile owner changes it.
 
-### What It Does
-Displays a dynamic card showing the most commonly used programming languages across all public repositories.
-
-### Implementation
-```markdown
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=dark&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
-```
-
-### How It Works
-1. **GitHub API Integration**: The service uses GitHub's official REST API (not web scraping) to fetch repository data
-2. **Language Analysis**: GitHub already calculates language breakdowns for each repository; this service aggregates that data
-3. **Dynamic SVG Generation**: On each profile view, the Vercel-hosted service generates an SVG image on-the-fly
-4. **Caching**: Results are cached for a few hours to avoid hitting GitHub's API rate limits
-5. **Server-Side Rendering**: The image is generated server-side and served as a response to the image request
-
-### Service Details
-- **Provider**: [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-- **Hosting**: Vercel
-- **Open Source**: Yes, fully transparent implementation
-- **Updates**: Automatically updates based on repository changes (with caching delay)
-
-### Customization Options
-The card supports various parameters:
-- `username` - Your GitHub username
-- `theme` - Color theme (dark, light, radical, merko, gruvbox, etc.)
-- `layout` - Display layout (compact, default, donut, donut-vertical)
-- `hide` - Comma-separated list of languages to exclude
-- `langs_count` - Number of languages to display
-- `size_weight` - Weight for byte count (default: 1)
-- `count_weight` - Weight for file count (default: 0)
-
-Example with more customization:
-```markdown
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=qedpi&theme=radical&layout=compact&langs_count=8&hide=html,css)](https://github.com/anuraghazra/github-readme-stats)
-```
-
-### Private Repository Support
-
-**Important Limitation:** The public Vercel instance (github-readme-stats.vercel.app) **only counts public repositories**. It cannot access private repository data.
-
-**Solution - Self-Hosting:**
-To include private repositories in language statistics, you need to self-host your own instance:
-
-1. Fork the [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) repository
-2. Deploy to Vercel (free tier supported)
-3. Create a GitHub Personal Access Token with `repo` and `user` permissions
-4. Add the token as environment variable `PAT_1` in your Vercel deployment
-5. Update `maxDuration` in `vercel.json` to `10` seconds (required for free Vercel accounts)
-6. Use your Vercel instance URL instead of the public one
-
-**References:**
-- [Discussion: Does top-langs count private repos?](https://github.com/anuraghazra/github-readme-stats/discussions/1554)
-- [Issue: Private repo support for Top Languages](https://github.com/anuraghazra/github-readme-stats/issues/653)
-- [Discussion: Top Languages and private count](https://github.com/anuraghazra/github-readme-stats/discussions/814)
-
-## Optional Components
-
-### GitHub Stats Card
-
-The github-readme-stats service also provides a comprehensive stats card showing:
-- Total stars earned
-- Total commits (last year)
-- Total PRs
-- Total issues
-- Repositories contributed to
-- Grade badge (A+, A, B-, etc.)
-
-**Implementation:**
-```markdown
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=qedpi&show_icons=true&theme=dark&count_private=true&line_height=40)
-```
-
-**Note:** This profile doesn't use this card due to the grading system, which can feel arbitrary and gamify contributions in ways that don't necessarily reflect meaningful work. The language statistics card provides useful information without the judgmental aspect.
-
-**Customization Options:**
-- `show_icons` - Display icons for each stat
-- `count_private` - Include private repository contributions
-- `hide` - Hide specific stats (e.g., `&hide=issues,contribs`)
-- `include_all_commits` - Count all commits instead of just current year
-- `show` - Show additional stats like reviews or discussions
-
-## Future Improvements
-
-### Self-Hosted Language Statistics with Private Repos
-
-**Current Limitation:** The language card currently only shows public repository statistics.
-
-**Potential Solutions:**
-
-1. **Self-host github-readme-stats** (Existing solution)
-   - Fork and deploy to Vercel with GitHub PAT
-   - Requires maintaining fork and syncing with upstream
-   - Free tier supported with `maxDuration=10` limit
-
-2. **Build Custom Solution** (Future consideration)
-   - Simpler implementation focused only on language stats
-   - No need to maintain fork of larger project
-   - Could integrate with custom activity tracking (see below)
-   - Self-hosted with full control over data and metrics
-
-**Pros of Custom Solution:**
-- Tailored to specific needs (just language stats, no grading)
-- Easier to maintain than keeping fork synced
-- Could add custom metrics (e.g., exclude generated code, weight by project importance)
-- Integration with private activity tracking service
-
-**Cons:**
-- Need to build and maintain from scratch
-- github-readme-stats is already well-tested and feature-rich
-- Self-hosting their fork is straightforward
-
-**Decision:** Start with self-hosted github-readme-stats fork if private repo stats are needed. Consider custom solution only if additional custom features become necessary.
-
-### Custom Activity Tracking Service
-Build a custom alternative to WakaTime that provides meaningful coding activity insights without the surveillance feel:
-
-**Why Build Our Own:**
-- WakaTime's free tier only keeps 1 week of history (limited utility)
-- Premium tier ($12/month) required for unlimited history
-- Privacy concerns with third-party activity monitoring
-- Opportunity to create more meaningful, personalized metrics
-
-**Potential Features:**
-- Self-hosted solution with full data ownership
-- IDE plugin for activity tracking (VS Code, JetBrains, etc.)
-- Local-first approach with optional cloud sync
-- Custom metrics tailored to personal productivity goals
-- Integration with GitHub profile cards
-- Open source implementation for transparency
-- Focus on insights over surveillance
-
-**Technical Approach:**
-- Lightweight IDE extensions for activity capture
-- Local database for historical data
-- API endpoint for generating SVG stats cards
-- Similar architecture to github-readme-stats (Vercel + dynamic SVG generation)
-- Privacy-focused: no tracking without explicit consent
-
-## Profile Badges
-
-### What is shields.io?
-[Shields.io](https://shields.io/) is a service that provides customizable badges/shields for GitHub READMEs. It serves over 1.6 billion images monthly and is used by popular projects like VS Code, Vue.js, and Bootstrap.
-
-You can create badges for:
-- Build status
-- Coverage
-- Version numbers
-- Downloads
-- Custom messages and links
-- Social media profiles
-- Personal websites and CVs
-
-### Website Badge
-
-Link to your personal website:
+Private repositories are excluded. Including them needs a self-hosted instance and a GitHub token stored outside this repository.
 
 ```markdown
-[![Website](https://img.shields.io/badge/Website-yoursite.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yoursite.com)
+## Top languages
+
+[![Top languages](https://github-stats-extended.vercel.app/api/top-langs/?username=qedpi&theme=dark&layout=donut-vertical#gh-dark-mode-only)](https://github.com/stats-organization/github-stats-extended#gh-dark-mode-only)
+[![Top languages](https://github-stats-extended.vercel.app/api/top-langs/?username=qedpi&theme=default&layout=donut-vertical#gh-light-mode-only)](https://github.com/stats-organization/github-stats-extended#gh-light-mode-only)
 ```
 
-**Customization options:**
-- Change `yoursite.com` (both in badge text and URL)
-- Adjust color: `blue`, `green`, `red`, `orange`, etc.
-- Choose different logo: `google-chrome`, `firefox`, `safari`, `globe`, etc.
-- Style options: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social`
+## Links left off the profile
 
-### CV/Resume Badge
+- https://qedpi.com returns the hosting default page /cgi-sys/defaultwebpage.cgi (HTTP 200 HTML that refreshes there). No website badge.
+- https://qedpi.com/cv returns 404. No CV badge.
+- https://github.com/sponsors/qedpi redirects to https://github.com/qedpi. No sponsor badge. GitHub Sponsors is not enabled.
+- A general stats card that shows a rank grade is omitted on purpose. The grade is a weighted percentile, not a measure of the work.
+- Nostr is not on the profile. Do not add a placeholder npub.
 
-Link to your online CV or resume:
+## References
 
-```markdown
-[![CV](https://img.shields.io/badge/CV-Resume-green?style=for-the-badge&logo=readthedocs&logoColor=white)](https://cv.yoursite.com)
-```
-
-**Alternative logos for CV:**
-- `readthedocs` - Documentation icon
-- `googledocs` - Google Docs icon
-- `adobeacrobatreader` - PDF icon
-- `markdown` - Markdown icon
-
-### Sponsor Badge
-
-Link to GitHub Sponsors:
-
-```markdown
-[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red?style=for-the-badge&logo=github)](https://github.com/sponsors/qedpi)
-```
-
-**Badge Resources:**
-- [Shields.io Official Site](https://shields.io/)
-- [Website Badge Documentation](https://shields.io/badges/website)
-- [Static Badge Guide](https://shields.io/badges)
-- [Markdown Badges Collection](https://github.com/Ileriayo/markdown-badges)
-- [Badge Examples](https://naereen.github.io/badges/)
-
-## Nostr Integration
-
-**What is Nostr?**
-
-[Nostr](https://nostr.com/) (Notes and Other Stuff Transmitted by Relays) is an open, decentralized protocol for message transmission designed to resist internet censorship while maintaining session integrity.
-
-### npub - Your Nostr Public Key
-
-An **npub** is your Nostr public identity key. Key characteristics:
-
-- **Public and shareable**: Your npub is meant to be shared publicly
-- **Unique identifier**: Used to look up your profile and connect with you
-- **Verification**: Others use it to verify your identity through message signatures
-- **Encryption**: Used by others to encrypt private messages to you
-- **Format**: User-friendly encoding (vs hexadecimal) of your public key
-
-**Example Usage in Profile:**
-```markdown
-**Nostr:** `npub1your_nostr_public_key_here`
-```
-
-### Why Include Nostr?
-
-Including your npub allows supporters to connect with you on decentralized social platforms, providing an alternative to traditional centralized social media.
-
-**Learn More:**
-- [Nostr Official Site](https://nostr.com/)
-- [Nostr on Wikipedia](https://en.wikipedia.org/wiki/Nostr)
-- [Nostr FAQs](https://nostrdesign.org/docs/faq/)
-
-## Additional Resources
-
-- [GitHub README Stats Documentation](https://github.com/anuraghazra/github-readme-stats)
-- [Available Themes](https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md)
-- [GitHub's Language Statistics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages)
-- [Shields.io Badge Service](https://shields.io/)
+- https://github.com/stats-organization/github-stats-extended
+- https://github.com/anuraghazra/github-readme-stats

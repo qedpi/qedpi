@@ -1,50 +1,27 @@
-# Working with AI Agents
+# qedpi profile repository
 
-This repository showcases projects and code developed in collaboration with AI assistants.
+This repository is the GitHub profile README for qedpi. `README.md` is the profile page.
 
-*`CLAUDE.md` and `GEMINI.md` are symlinks to this file so multiple AI coding tools read the same guidance.*
+*`CLAUDE.md` and `GEMINI.md` are symlinks to this file.*
 
-## About This Approach
+## Profile content
 
-I believe in transparent collaboration between human creativity and AI capabilities. The projects here represent a partnership where:
+- Keep `README.md` to cards and links whose destinations return the intended page.
+- The top-languages card uses `github-stats-extended.vercel.app` with layout `donut-vertical`, `theme=dark` for `#gh-dark-mode-only`, and `theme=default` for `#gh-light-mode-only`.
+- Leave `github-readme-stats.vercel.app` unused. That host returns HTTP 503 `DEPLOYMENT_PAUSED`, and anuraghazra/github-readme-stats is unmaintained.
+- Add a website or CV badge only after `qedpi.com` serves a real site and `qedpi.com/cv` returns that CV. Today the domain serves the host default page, and `/cv` returns 404.
+- Add a sponsor badge only after `https://github.com/sponsors/qedpi` stays on GitHub Sponsors. Today it redirects to the profile.
+- Leave out the GitHub profile template comment that begins "I'm currently working on".
+- **Default:** Leave the language card byte-weighted. Notebook files make Jupyter Notebook about 95% of the bytes. Change `size_weight` or `count_weight` only when the profile owner asks.
 
-- **Human:** Provides direction, domain expertise, architectural decisions, and critical thinking
-- **AI Agent:** Assists with implementation, code generation, research, and problem-solving
+## Repository layout
 
-## Development Workflow
+- Agent-facing files live in `.agents/`. Read `.agents/README.md` before adding a skill or reference.
+- Update `COMPONENTS.md` in the same change as `README.md`.
+- There is no package manifest and no workflow. Add Renovate `packageRules` for npm, React, Next.js, TypeScript, ESLint, Prettier, or GitHub Actions only after those files exist.
+- `.claude/settings.local.json` is local permissions and stays untracked.
 
-When working with AI agents on software projects, I typically:
+## Collaboration
 
-1. Define clear objectives and requirements
-2. Collaborate on architecture and design decisions
-3. Leverage AI coding agents for implementation assistance and code review
-4. Maintain ownership of critical decisions and final code quality
-
-## Projects
-
-Projects in this profile may involve AI agent assistance in various capacities:
-- Code generation and refactoring
-- Documentation and technical writing
-- Research and problem-solving
-- Testing and debugging assistance
-
-## Why Document This?
-
-Transparency matters. As AI tools become integral to software development, I believe in being open about:
-- How these tools are used in the development process
-- The collaborative nature of modern software engineering
-- The value of human-AI partnership in technical work
-
-## Agent Context Structure
-
-Agent-facing context lives in `.agents/` as the canonical source. Reusable workflows belong in `.agents/skills/<name>/SKILL.md`, and durable reference material belongs in `.agents/shared-references/`. Tool-specific views should symlink to that structure; `.claude/skills` and `.codex/skills` point to `.agents/skills`.
-
-## AI Assistants Used
-
-- [Claude](https://claude.ai) - Anthropic's AI assistant
-- [Gemini](https://gemini.google.com) - Google's AI assistant
-- [Codex](https://openai.com/codex/) - OpenAI's coding agent
-
----
-
-*This approach to AI collaboration reflects my commitment to leveraging modern tools while maintaining high standards for code quality and engineering practices.*
+- The profile owner decides which links are real and which stats metric is shown.
+- Edit only the files the request names.

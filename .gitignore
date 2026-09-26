@@ -1,2 +1,5 @@
 # IDE
 .idea/
+
+# Local agent permissions
+.claude/settings.local.json
