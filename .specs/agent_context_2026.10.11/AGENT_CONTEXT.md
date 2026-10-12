@@ -20,6 +20,7 @@ Base: `0c3a136`. Rubric: `~/.agents/skills/agent-context-style/references/rewrit
 | File | Item | Action | Reason | Evidence |
 |------|------|--------|--------|----------|
 | `AGENTS.md` | "Leave `github-readme-stats.vercel.app` unused. That host returns HTTP 503 `DEPLOYMENT_PAUSED`, and anuraghazra/github-readme-stats is unmaintained." | flag | both reasons look stale; the rule is an owner decision, so the text stays | `curl https://github-readme-stats.vercel.app/api?username=qedpi` returns 200 with a rendered SVG; `gh api repos/anuraghazra/github-readme-stats`: `archived=false`, last push 2026-10-01 |
+| `AGENTS.md` | `spec-lifecycle` pointer lines | skip | no `.notes/`, no plans; `.specs/` holds only this ledger, so the repo has no spec convention to point at | rg for `specs/archive`, `past_plans`, `current_plan`, `.notes`: no hits |
 
 No edits: `AGENTS.md` and `.agents/README.md` pass the rubric.
 
