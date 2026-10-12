@@ -8,7 +8,7 @@ This repository is the GitHub profile README for qedpi. `README.md` is the profi
 
 - Keep `README.md` to cards and links whose destinations return the intended page.
 - The top-languages card uses `github-stats-extended.vercel.app` with layout `donut-vertical`, `theme=dark` for `#gh-dark-mode-only`, and `theme=default` for `#gh-light-mode-only`.
-- Leave `github-readme-stats.vercel.app` unused. That host returns HTTP 503 `DEPLOYMENT_PAUSED`, and anuraghazra/github-readme-stats is unmaintained.
+- Leave `github-readme-stats.vercel.app` unused. Its README says the project is no longer maintained and names GitHub Stats Extended as the successor. The host served cards again on 2026-10-12 (HTTP 200) after a 503 `DEPLOYMENT_PAUSED` period, so uptime is not the reason.
 - Add a website or CV badge only after `qedpi.com` serves a real site and `qedpi.com/cv` returns that CV. Today the domain serves the host default page, and `/cv` returns 404.
 - Add a sponsor badge only after `https://github.com/sponsors/qedpi` stays on GitHub Sponsors. Today it redirects to the profile.
 - Leave out the GitHub profile template comment that begins "I'm currently working on".

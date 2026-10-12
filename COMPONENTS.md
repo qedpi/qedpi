@@ -4,7 +4,7 @@ This file describes what README.md renders on the qedpi GitHub profile. Update i
 
 ## Top languages card
 
-The card is the byte-weighted language share of public non-fork repositories owned by qedpi. The host is GitHub Stats Extended at https://github-stats-extended.vercel.app, the maintained successor of anuraghazra/github-readme-stats. The previous host https://github-readme-stats.vercel.app returns HTTP 503 with x-vercel-error DEPLOYMENT_PAUSED. anuraghazra/github-readme-stats says the project is unmaintained.
+The card is the byte-weighted language share of public non-fork repositories owned by qedpi. The host is GitHub Stats Extended at https://github-stats-extended.vercel.app, the maintained successor of anuraghazra/github-readme-stats. anuraghazra/github-readme-stats says in its README that it is no longer maintained and points to GitHub Stats Extended. Its host https://github-readme-stats.vercel.app returned HTTP 503 (DEPLOYMENT_PAUSED) in September 2026 and HTTP 200 again on 2026-10-12; the card stays on the successor.
 
 The layout parameter is `donut-vertical`. `theme=dark` is shown with `#gh-dark-mode-only`, and `theme=default` is shown with `#gh-light-mode-only`, so the card follows the viewer's GitHub theme.
 
