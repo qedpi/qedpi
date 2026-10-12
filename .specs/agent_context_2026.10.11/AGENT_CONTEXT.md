@@ -28,6 +28,16 @@ No edits: `AGENTS.md` and `.agents/README.md` pass the rubric.
 
 | Repo | AGENTS.md lines | Skills touched/total | Description chars median/max | In-scope chars | Commits | Pushed | Validators |
 |------|-----------------|----------------------|------------------------------|----------------|---------|--------|------------|
-| qedpi | 27->27 | 0/0 | n/a | 2226->2226 | 1 | pending | none configured |
+| qedpi | 27->27 | 0/0 | n/a | 2226->2226 | 1 | yes | none configured |
 
 Lost-fact check: no removed lines.
+
+## Improvement pass 2026-10-12
+
+| Change | Why | Evidence | Commit |
+|---|---|---|---|
+| `AGENTS.md` and `COMPONENTS.md`: keep `github-readme-stats.vercel.app` unused, but state the true reason (upstream README says it is no longer maintained and names GitHub Stats Extended as the successor) and drop the 503 claim | fleet follow-up A3 (delegated): the 503 reason was stale | 2026-10-12: `curl -sI` on the host returns 200 `image/svg+xml`; `gh api repos/anuraghazra/github-readme-stats`: `archived=false`, pushed 2026-10-01; its README line 36: "This repository is no longer maintained. Please use the successor project GitHub Stats Extended" | `a13a741` |
+
+Live URL check (2026-10-12): both README card URLs (dark, light) 200 `image/svg+xml`; `github.com/stats-organization/github-stats-extended` 200; `qedpi.com/cv` 404 and `github.com/sponsors/qedpi` 302 to the profile, so the AGENTS.md rules on CV and sponsor badges still hold. README content unchanged (nothing broken).
+
+Not done, on purpose: no hooks or CI added (no code to check; Actions billing is open for Tom); empty `.agents/skills/` and `shared-references/` kept as the shared layout.
