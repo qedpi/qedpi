@@ -18,6 +18,7 @@ This repository is the GitHub profile README for qedpi. `README.md` is the profi
 
 - Agent-facing files live in `.agents/`. Read `.agents/README.md` before adding a skill or reference.
 - Update `COMPONENTS.md` in the same change as `README.md`.
+- Hooks: `.pre-commit-config.yaml` (run `pre-commit install` once per clone) checks whitespace and JSON at commit, `README.md` links with lychee at push, and Conventional Commits at commit-msg.
 - There is no package manifest and no workflow. Add Renovate `packageRules` for npm, React, Next.js, TypeScript, ESLint, Prettier, or GitHub Actions only after those files exist.
 - `.claude/settings.local.json` is local permissions and stays untracked.
 
