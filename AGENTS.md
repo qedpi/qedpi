@@ -2,7 +2,7 @@
 
 This repository is the GitHub profile README for qedpi. `README.md` is the profile page.
 
-*`CLAUDE.md` and `GEMINI.md` are symlinks to this file.*
+`CLAUDE.md` and `GEMINI.md` are symlinks to this file.
 
 ## Profile content
 
