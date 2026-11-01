@@ -2,4 +2,5 @@
 schema: 1
 id: qedpi
 name: Qedpi
+icon: design/icons/pi-tombstone.svg
 services: []
