@@ -1,0 +1,5 @@
+# Local dev servers this repo runs. Format: agent skill dev-services-manifest.
+schema: 1
+id: qedpi
+name: Qedpi
+services: []
